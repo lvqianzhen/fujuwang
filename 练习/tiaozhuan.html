@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="first">我是一楼</h1>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<p>我是一楼内容</p>
+<h1 id="second">我是二楼</h1>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<p>我是二楼内容</p>
+<h1 id="third">我是三楼</h1>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<p>我是三楼内容</p>
+<div class="box">
+    <div>
+        <a href="#first">我是一楼</a>
+        <a href="#second">我是二楼</a>
+        <a href="#third">我是三楼</a>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
+<script>
+    var aLinks = document.getElementsByTagName("a");
+    var aLinks = Array.from(aLinks);
+    aLinks.forEach(val=>{
+        val.onclick = function (e) {
+            // console.log(e)
+            e.preventDefault();
+            var hash = e.target.hash.split("#")[1];
+            var floor = document.getElementById(hash);
+            var top = floor.offsetTop
+            // document.documentElement.scrollTop = top
+            $("body,html").animate({scrollTop:top},1000)
+        }
+    })
+</script>
+</html>

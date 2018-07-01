@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 10px solid #000;
+            background: red;
+        }
+        .active{
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="active box active"></div>
+<button id="btn">去除激活状态</button>
+</body>
+<script>
+    var btn = document.getElementById("btn")
+    var box = document.getElementById("box")
+    // 第一种正则表达式方案
+
+    // function removeClass(DOM,name) {
+    //     var reg = new RegExp(`${name}`,"g");
+    //     DOM.className = DOM.className.replace(reg,"");
+    // }
+    // btn.onclick = function () {
+    //     removeClass(box,"active")
+    // }
+    // 第二种方案
+    function removeClass(DOM,name) {
+        var old = DOM.className;
+        var arr = old.split(" ");
+        arr=arr.map(val=>{
+            return val === name?"":val
+        })
+        DOM.className = arr.join(" ").trim();
+    }
+    btn.onclick = function () {
+        removeClass(box,"active")
+    }
+</script>
+</html>

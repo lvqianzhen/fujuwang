@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    var box = document.getElementById("box")
+    // var timer = setInterval(()=>{
+    //     if ((500-box.offsetLeft)<6) {
+    //         box.style.marginLeft = 500 + "px"
+    //         clearInterval(timer)
+    //         return
+    //     }
+    //     box.style.marginLeft = box.offsetLeft + 6 + "px";
+    //     if (box.offsetLeft>=500) {
+    //         clearInterval(timer)
+    //     }
+    // }, 1000/30)
+    function css(dom,prop) {
+        if (dom.currentStyle){
+            return dom.currentStyle[prop];
+        }else{
+            return getComputedStyle(dom,null)[prop];
+        }
+    }
+    function animate(dom,prop,target,speed) {
+        var origin = css(dom,prop)
+        var timer = setInterval(()=>{
+            var currentPoint = css(dom,prop);
+            if (parseInt(target)-parseInt(currentPoint)<speed){
+                dom.style[prop] = target
+                clearInterval(timer)
+                return
+            }
+            dom.style[prop] = parseInt(currentPoint) + speed + "px";
+            if (dom.style[prop]==target){
+                clearInterval(timer)
+            }
+        },1000/30)
+    }
+    animate(box,"marginTop","500px",6)
+</script>
+</html>
